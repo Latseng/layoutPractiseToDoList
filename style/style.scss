@@ -1,0 +1,118 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  background-color: #ecebfa;
+  font-family: "Baloo 2", cursive;
+  main {
+    padding: 1rem;
+    align-items: center;
+    position: relative;
+    h1 {
+      text-align: center;
+      margin-top: 5rem;
+      font-size: 3rem;
+    }
+
+    div.corner {
+      width: 60px;
+      height: 60px;
+      border-radius: 50% 50% 50% 0;
+      position: absolute;
+      transform: rotate(-90deg) translate(1rem, 18rem);
+      background-color: #48485b;
+      z-index: 1;
+    }
+
+    div.add {
+      width: 54%;
+      background-color: white;
+      margin: 1rem 20rem 2.5rem 20rem;
+      padding: 0.25rem 0.25rem;
+      border-radius: 8px;
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 3;
+
+      form {
+        input {
+          font-size: 18px;
+          border: none;
+        }
+      }
+
+      div.btn {
+        margin: 0rem;
+        padding: 0rem;
+        border: none;
+        button {
+          border: none;
+          color: none;
+          background-color: white;
+          i {
+            font-size: 2.5rem;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  div.todo {
+    position: absolute;
+    z-index: 3;
+    width: 55%;
+    transform: translate(19.5rem, 5.5rem);
+
+    ul {
+      text-align: center;
+      li {
+        list-style-type: none;
+        text-align: left;
+        margin: 1rem 0.5rem;
+        padding: 1rem 1rem;
+        border: 1px;
+        border-radius: 8px;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        div.btn {
+          button {
+            margin: 0rem 0.75rem;
+            border: none;
+            color: none;
+            background-color: white;
+            i {
+              font-size: 1.25rem;
+              color: #84849c;
+            }
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  div.circle {
+    background-color: #84849c;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100% 0 0 0;
+  }
+}
