@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-ul {
-  list-style-type: none;
-}
-
 body {
   background-color: #ecebfa;
   font-family: "Baloo 2", cursive;
@@ -15,7 +11,10 @@ body {
 body main {
   padding: 1rem;
   align-items: center;
-  position: relative;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
 }
 body main h1 {
   text-align: center;
@@ -26,54 +25,60 @@ body main div.corner {
   width: 60px;
   height: 60px;
   border-radius: 50% 50% 50% 0;
-  position: absolute;
-  transform: rotate(-90deg) translate(1rem, 18rem);
+  transform: rotate(-90deg) translate(-70%, -320%);
   background-color: #48485b;
-  z-index: 1;
+  z-index: -1;
 }
 body main div.add {
-  width: 54%;
-  background-color: white;
-  margin: 1rem 20rem 2.5rem 20rem;
-  padding: 0.25rem 0.25rem;
-  border-radius: 8px;
-  position: absolute;
+  width: 65%;
+  margin: 1rem 2rem 2.5rem 1rem;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+body main div.add div.add-todo {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 3;
+  width: 100%;
+  z-index: 1;
 }
-body main div.add form input {
+body main div.add div.add-todo form input {
+  margin: 1rem 0.5rem;
   font-size: 18px;
   border: none;
+  background-color: red;
+  width: 100%;
 }
-body main div.add div.btn {
-  margin: 0rem;
+body main div.add div.add-todo div.btn {
+  margin-right: 9px;
   padding: 0rem;
   border: none;
+  width: auto;
 }
-body main div.add div.btn button {
+body main div.add div.add-todo div.btn button {
   border: none;
   color: none;
   background-color: white;
 }
-body main div.add div.btn button i {
+body main div.add div.add-todo div.btn button i {
   font-size: 2.5rem;
 }
-body main div.add div.btn button:hover {
+body main div.add div.add-todo div.btn button:hover {
   cursor: pointer;
 }
-body div.todo {
-  position: absolute;
+body main div.todo {
   z-index: 3;
-  width: 55%;
-  transform: translate(19.5rem, 5.5rem);
+  width: 65%;
+  margin: 1rem 2rem 2.5rem 1rem;
 }
-body div.todo ul {
+body main div.todo ul {
   text-align: center;
+  list-style-type: none;
 }
-body div.todo ul li {
+body main div.todo ul li {
   list-style-type: none;
   text-align: left;
   margin: 1rem 0.5rem;
@@ -85,17 +90,17 @@ body div.todo ul li {
   flex-direction: row;
   justify-content: space-between;
 }
-body div.todo ul li div.btn button {
+body main div.todo ul li div.btn button {
   margin: 0rem 0.75rem;
   border: none;
   color: none;
   background-color: white;
 }
-body div.todo ul li div.btn button i {
+body main div.todo ul li div.btn button i {
   font-size: 1.25rem;
   color: #84849c;
 }
-body div.todo ul li div.btn button:hover {
+body main div.todo ul li div.btn button:hover {
   cursor: pointer;
 }
 body div.circle {
@@ -106,4 +111,5 @@ body div.circle {
   width: 8rem;
   height: 8rem;
   border-radius: 100% 0 0 0;
+  z-index: -3;
 }/*# sourceMappingURL=style.css.map */

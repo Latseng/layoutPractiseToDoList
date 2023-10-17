@@ -4,17 +4,17 @@
   box-sizing: border-box;
 }
 
-ul {
-  list-style-type: none;
-}
-
 body {
   background-color: #ecebfa;
   font-family: "Baloo 2", cursive;
+
   main {
     padding: 1rem;
     align-items: center;
-    position: relative;
+    // position: relative;
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
     h1 {
       text-align: center;
       margin-top: 5rem;
@@ -25,78 +25,51 @@ body {
       width: 60px;
       height: 60px;
       border-radius: 50% 50% 50% 0;
-      position: absolute;
-      transform: rotate(-90deg) translate(1rem, 18rem);
+      transform: rotate(-90deg) translate(-70%, -320%);
       background-color: #48485b;
-      z-index: 1;
+      z-index: -1;
     }
 
     div.add {
-      width: 54%;
-      background-color: white;
-      margin: 1rem 20rem 2.5rem 20rem;
-      padding: 0.25rem 0.25rem;
-      border-radius: 8px;
-      position: absolute;
+      width: 65%;
+
+      margin: 1rem 2rem 2.5rem 1rem;
+      // padding: 0.25rem 0.25rem;
+
+      // position: absolute;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 3;
+      justify-content: center;
+      // align-items: center;
 
-      form {
-        input {
-          font-size: 18px;
-          border: none;
-        }
-      }
-
-      div.btn {
-        margin: 0rem;
-        padding: 0rem;
-        border: none;
-        button {
-          border: none;
-          color: none;
-          background-color: white;
-          i {
-            font-size: 2.5rem;
-          }
-          &:hover {
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  }
-  div.todo {
-    position: absolute;
-    z-index: 3;
-    width: 55%;
-    transform: translate(19.5rem, 5.5rem);
-
-    ul {
-      text-align: center;
-      li {
-        list-style-type: none;
-        text-align: left;
-        margin: 1rem 0.5rem;
-        padding: 1rem 1rem;
-        border: 1px;
-        border-radius: 8px;
+      div.add-todo {
         background-color: white;
+        border-radius: 8px;
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 1;
+        form {
+          input {
+            margin: 1rem 0.5rem;
+            font-size: 18px;
+            border: none;
+            background-color: red;
+            width: 100%;
+          }
+        }
         div.btn {
+          margin-right: 9px;
+          padding: 0rem;
+          border: none;
+          width: auto;
           button {
-            margin: 0rem 0.75rem;
             border: none;
             color: none;
             background-color: white;
             i {
-              font-size: 1.25rem;
-              color: #84849c;
+              font-size: 2.5rem;
             }
             &:hover {
               cursor: pointer;
@@ -105,7 +78,47 @@ body {
         }
       }
     }
+    div.todo {
+      // position: absolute;
+      z-index: 3;
+      width: 65%;
+      // transform: translate(19.5rem, 5.5rem);
+      margin: 1rem 2rem 2.5rem 1rem;
+
+      ul {
+        text-align: center;
+        list-style-type: none;
+        li {
+          list-style-type: none;
+          text-align: left;
+          margin: 1rem 0.5rem;
+          padding: 1rem 1rem;
+          border: 1px;
+          border-radius: 8px;
+          background-color: white;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          div.btn {
+            button {
+              margin: 0rem 0.75rem;
+              border: none;
+              color: none;
+              background-color: white;
+              i {
+                font-size: 1.25rem;
+                color: #84849c;
+              }
+              &:hover {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
   }
+
   div.circle {
     background-color: #84849c;
     position: fixed;
@@ -114,5 +127,6 @@ body {
     width: 8rem;
     height: 8rem;
     border-radius: 100% 0 0 0;
+    z-index: -3;
   }
 }
