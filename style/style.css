@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+ul {
+  list-style-type: none;
+}
+
+.title {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 3rem;
+}
+
 body {
   background-color: #ecebfa;
   font-family: "Baloo 2", cursive;
@@ -16,94 +26,84 @@ body main {
   display: flex;
   flex-direction: column;
 }
-body main h1 {
-  text-align: center;
-  margin-top: 5rem;
-  font-size: 3rem;
-}
-body main div.corner {
-  width: 60px;
-  height: 60px;
-  border-radius: 50% 50% 50% 0;
-  transform: rotate(-90deg) translate(-70%, -320%);
-  background-color: #48485b;
-  z-index: -1;
-}
-body main div.add {
-  width: 65%;
-  margin: 1rem 2rem 2.5rem 1rem;
+body .add-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-body main div.add div.add-todo {
-  background-color: white;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
+  position: relative;
   align-items: center;
+  width: 65%;
+  margin-bottom: 2rem;
+}
+body .add-container .add-item {
   width: 100%;
-  z-index: 1;
-}
-body main div.add div.add-todo form input {
-  margin: 1rem 0.5rem;
-  font-size: 18px;
+  height: 68px;
+  border-radius: 8px;
   border: none;
-  background-color: red;
-  width: 100%;
 }
-body main div.add div.add-todo div.btn {
-  margin-right: 9px;
-  padding: 0rem;
+body .add-container .add-btn {
   border: none;
-  width: auto;
-}
-body main div.add div.add-todo div.btn button {
-  border: none;
-  color: none;
+  right: 9px;
+  position: absolute;
   background-color: white;
 }
-body main div.add div.add-todo div.btn button i {
-  font-size: 2.5rem;
-}
-body main div.add div.add-todo div.btn button:hover {
+body .add-container .add-btn:hover {
   cursor: pointer;
 }
-body main div.todo {
-  z-index: 3;
+body .add-container .add-btn .add-icon {
+  font-size: 60px;
+}
+body .add-container .corner {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background-color: #48485b;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: -3;
+}
+body .todo {
   width: 65%;
-  margin: 1rem 2rem 2.5rem 1rem;
 }
-body main div.todo ul {
-  text-align: center;
-  list-style-type: none;
-}
-body main div.todo ul li {
+body .item {
   list-style-type: none;
   text-align: left;
-  margin: 1rem 0.5rem;
+  width: 100%;
+  height: 68px;
+  margin: 1.5rem 0;
   padding: 1rem 1rem;
   border: 1px;
   border-radius: 8px;
   background-color: white;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  position: relative;
 }
-body main div.todo ul li div.btn button {
-  margin: 0rem 0.75rem;
+body .item .delete-btn {
+  right: 24px;
+  position: absolute;
+  font-size: 32px;
   border: none;
-  color: none;
   background-color: white;
 }
-body main div.todo ul li div.btn button i {
-  font-size: 1.25rem;
-  color: #84849c;
-}
-body main div.todo ul li div.btn button:hover {
+body .item .delete-btn:hover {
   cursor: pointer;
 }
-body div.circle {
+body .item .delete-btn .trash-icon {
+  color: #84849c;
+}
+body .item .edit-btn {
+  position: absolute;
+  right: 77px;
+  font-size: 32px;
+  border: none;
+  background-color: white;
+}
+body .item .edit-btn:hover {
+  cursor: pointer;
+}
+body .item .edit-btn .edit-icon {
+  color: #84849c;
+}
+body .circle {
   background-color: #84849c;
   position: fixed;
   bottom: 0;
