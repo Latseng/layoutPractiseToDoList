@@ -1,46 +1,74 @@
-let addButton = document.querySelector(".add-btn");
 let toDo = document.querySelector(".todo");
 let addText = document.querySelector(".add-item");
 
-//新增待辦事項
+//新增待辦事項列
+let addButton = document.querySelector(".add-btn");
 addButton.addEventListener("click", () => {
   let newList = document.createElement("li");
-  let newEditButton = document.createElement("button");
-  let newDeleteButton = document.createElement("button");
-  let newEditIcon = document.createElement("i");
-  let newDeleteIcon = document.createElement("i");
   newList.classList.add("item");
+  toDo.appendChild(newList);
+
+  let newP = document.createElement("p");
+  newP.classList.add("text");
+  newP.textContent = addText.value;
+  newList.appendChild(newP);
+
+  let newEditButton = document.createElement("button");
   newEditButton.classList.add("edit-btn");
-  newDeleteButton.classList.add("delete-btn");
+  newList.appendChild(newEditButton);
+
+  let newEditIcon = document.createElement("i");
   newEditIcon.classList.add("fas");
   newEditIcon.classList.add("fa-edit");
   newEditIcon.classList.add("edit-icon");
+  newEditButton.appendChild(newEditIcon);
+
+  let newDeleteButton = document.createElement("button");
+  newDeleteButton.classList.add("delete-btn");
+  let newDeleteIcon = document.createElement("i");
   newDeleteIcon.classList.add("fas");
   newDeleteIcon.classList.add("fa-trash");
   newDeleteIcon.classList.add("trash-icon");
-  newList.textContent = addText.value;
-  toDo.appendChild(newList);
-  newList.appendChild(newEditButton);
-  newList.appendChild(newDeleteButton);
-  newEditButton.appendChild(newEditIcon);
   newDeleteButton.appendChild(newDeleteIcon);
+  newList.appendChild(newDeleteButton);
+
+  const editItem = document.querySelectorAll(".edit-btn");
+  editItem.forEach((edit) => {
+    edit.addEventListener("click", (e) => {
+      const newText = prompt("請輸入新的記事：");
+      e.target.parentElement.parentElement.querySelector(".text").textContent =
+        newText;
+    });
+  });
+
+  newDeleteButton.addEventListener("click", (e) => {
+    e.target.parentElement.parentElement.classList.add("remove");
+    let list = e.target.parentElement.parentElement;
+    list.addEventListener("trasitionend", (e) => {
+      e.target.remove();
+    });
+  });
+  newList.style.animation = "scaleUp 0.5s ease forwards";
 });
 
-const lis = document.querySelector(".todo").querySelectorAll(".item");
-
-lis.forEach((li) => {
-  const deleteItem = li.querySelector(".delete-btn");
-
-  deleteItem.addEventListener("click", () => {
-    li.remove();
+//製作編輯按鈕
+const editItem = document.querySelectorAll(".edit-btn");
+editItem.forEach((edit) => {
+  edit.addEventListener("click", (e) => {
+    const newText = prompt("請輸入新的記事：");
+    e.target.parentElement.parentElement.querySelector(".text").textContent =
+      newText;
   });
 });
 
-lis.forEach((li) => {
-  const editItem = li.querySelector(".edit-btn");
-
-  editItem.addEventListener("click", () => {
-    let newItem = li.value;
-    document.querySelector(".add-item").value = newItem.text;
+//製作刪除項目按鈕
+let deleteItem = document.querySelectorAll(".delete-btn");
+deleteItem.forEach((trash) => {
+  trash.addEventListener("click", (e) => {
+    e.target.parentElement.parentElement.classList.add("remove");
+  });
+  let list = trash.parentElement.parentElement;
+  list.addEventListener("transitionend", (e) => {
+    e.target.remove();
   });
 });
